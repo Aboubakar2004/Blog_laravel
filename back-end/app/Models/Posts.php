@@ -11,5 +11,5 @@ class Posts extends Model
         return $this->belongsTo(User::class);
     }
 
-    protected $fillable = ["title", "content"];
+    protected $fillable = ["title", "content", "user_id"];
 }
