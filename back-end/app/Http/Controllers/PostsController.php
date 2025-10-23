@@ -32,4 +32,12 @@ class PostsController extends Controller
             "post" => $post
         ]);
     }
+
+    public function show ($id) {
+        $post = Posts::where('user_id', $id)->get();
+
+        return response()->json([
+            "post" => $post,
+        ]);
+    }
 }
