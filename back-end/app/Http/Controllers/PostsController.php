@@ -22,4 +22,14 @@ class PostsController extends Controller
             "post" => $post
         ]);
     }
+
+    public function destroy ($id) {
+        $post = Posts::findOrFail($id);
+        $post->delete();
+
+        return response()->json([
+            "message" => "Post supprimé avec succès",
+            "post" => $post
+        ]);
+    }
 }
