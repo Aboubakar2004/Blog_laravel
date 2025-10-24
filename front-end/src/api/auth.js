@@ -15,12 +15,32 @@ export async function registerUser({ name, email, password }) {
   }
 }
 
-export async function login({ email, password }) {
+export async function loginUser({ email, password }) {
   try {
     const response = await axios.post(`${API_URL}/login`, {
       email,
       password,
     });
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+}
+
+export async function logoutUser({}) {
+  const token = localStorage.getItem("token");
+  try {
+    const response = await axios.post(
+      `${API_URL}/logout`,
+      {},
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    localStorage.removeItem("token");
     return response.data;
   } catch (error) {
     console.error(error);
