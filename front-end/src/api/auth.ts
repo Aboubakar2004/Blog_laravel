@@ -1,7 +1,15 @@
 const API_URL = "http://127.0.0.1:8000/api";
 import axios from "axios";
 
-export async function registerUser({ name, email, password }) {
+export async function registerUser({
+  name,
+  email,
+  password,
+}: {
+  name: string;
+  email: string;
+  password: string;
+}) {
   try {
     const response = await axios.post(`${API_URL}/register`, {
       name,
@@ -15,7 +23,13 @@ export async function registerUser({ name, email, password }) {
   }
 }
 
-export async function loginUser({ email, password }) {
+export async function loginUser({
+  email,
+  password,
+}: {
+  email: string;
+  password: string;
+}) {
   try {
     const response = await axios.post(`${API_URL}/login`, {
       email,
