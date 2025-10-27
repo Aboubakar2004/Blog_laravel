@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 import { showUserPost } from "../../api/posts";
+import type { Posts } from "../../interface/Posts";
 
 function UserPost() {
-  const [postsData, setPostsData] = useState([]);
+  const [postsData, setPostsData] = useState<Posts[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const data = await showUserPost();
-        setPostsData(data);
+        setPostsData(data.post);
       } catch (error) {
         console.error(error);
       } finally {
@@ -25,7 +26,7 @@ function UserPost() {
       {loading ? (
         <h1>Chargement ...</h1>
       ) : (
-        postsData.post?.map((item: object, index: number) => (
+        postsData?.map((item, index) => (
           <div key={index}>
             <h1>{item.title}</h1>
             <h2>{item.content}</h2>

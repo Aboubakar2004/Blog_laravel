@@ -3,9 +3,10 @@ import { getUserInfo } from "../../api/user";
 import { Link } from "react-router-dom";
 import { logoutUser } from "../../api/auth";
 import { useNavigate } from "react-router-dom";
+import type { UserType } from "../../interface/User";
 
 function UserPage() {
-  const [userData, setUserData] = useState(null);
+  const [userData, setUserData] = useState<UserType | null>(null);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
@@ -13,7 +14,7 @@ function UserPage() {
     const fetchData = async () => {
       try {
         const data = await getUserInfo();
-        setUserData(data);
+        setUserData(data.user);
       } catch (error) {
         console.error(error);
       } finally {
@@ -42,7 +43,7 @@ function UserPage() {
           <h1>Chargement ...</h1>
         ) : (
           <div>
-            <h1>Bonjour {userData?.user.name}</h1>
+            <h1>Bonjour {userData?.name}</h1>
             <button onClick={handleSubmit}>Déconnexion</button>
             <Link to={"/posts"}>
               <button>Faire un post</button>
