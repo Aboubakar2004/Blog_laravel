@@ -10,6 +10,7 @@ function Posts() {
     try {
       await addPost({ title: form.title, content: form.content });
       alert("Post crée avec succès");
+      setForm({ title: "", content: "" });
     } catch (error) {
       console.error(error);
     }

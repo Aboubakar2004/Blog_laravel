@@ -29,3 +29,18 @@ export async function addPost({
     throw error;
   }
 }
+
+export async function showUserPost() {
+  try {
+    const token = localStorage.getItem("token");
+    const userid = localStorage.getItem("user_id");
+    const response = await axios.get(`${API_URL}/posts/${userid}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+}

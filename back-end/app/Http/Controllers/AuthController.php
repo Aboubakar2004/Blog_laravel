@@ -45,7 +45,7 @@ class AuthController extends Controller
             "message" => "Utilisateur connecté",
             "token" => $token,
             "user" => $user,
-            "user" => $user->id
+            "user_id" => $user->id
         ]);
     }
 

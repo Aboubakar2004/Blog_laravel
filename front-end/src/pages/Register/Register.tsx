@@ -13,7 +13,6 @@ function Register() {
         email: form.email,
         password: form.password,
       });
-      console.log("Utilisateur inscrit avec succès");
     } catch (error) {
       console.error(error);
     }

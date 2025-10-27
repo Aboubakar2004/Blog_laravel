@@ -14,7 +14,6 @@ function UserPage() {
       try {
         const data = await getUserInfo();
         setUserData(data);
-        console.log(data);
       } catch (error) {
         console.error(error);
       } finally {
@@ -47,6 +46,9 @@ function UserPage() {
             <button onClick={handleSubmit}>Déconnexion</button>
             <Link to={"/posts"}>
               <button>Faire un post</button>
+            </Link>
+            <Link to={"/userposts"}>
+              <button>Voir mes posts</button>
             </Link>
           </div>
         )}

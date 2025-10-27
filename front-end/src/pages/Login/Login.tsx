@@ -14,8 +14,9 @@ function Login() {
         email: form.email,
         password: form.password,
       });
-      if (data.token) {
+      if (data.token && data.user_id) {
         localStorage.setItem("token", data.token);
+        localStorage.setItem("user_id", data.user_id);
         navigate("/userpage");
       }
       setMessage(data.message);
