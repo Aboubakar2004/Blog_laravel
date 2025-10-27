@@ -11,7 +11,6 @@ function UserPost() {
       try {
         const data = await showUserPost();
         setPostsData(data.post);
-        console.log(data);
       } catch (error) {
         console.error(error);
       } finally {
@@ -35,6 +34,8 @@ function UserPost() {
     <div>
       {loading ? (
         <h1>Chargement ...</h1>
+      ) : postsData.length === 0 ? (
+        <h1>Commencez à poster </h1>
       ) : (
         postsData?.map((item, index) => (
           <div key={index}>
