@@ -44,3 +44,19 @@ export async function showUserPost() {
     console.error(error);
   }
 }
+
+export async function deletePost(postId: number) {
+  try {
+    const token = localStorage.getItem("token");
+    const response = await axios.delete(`${API_URL}/posts/${postId}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+}

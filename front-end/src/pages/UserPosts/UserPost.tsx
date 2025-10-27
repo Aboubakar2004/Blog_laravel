@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { showUserPost } from "../../api/posts";
+import { deletePost, showUserPost } from "../../api/posts";
 import type { Posts } from "../../interface/Posts";
 
 function UserPost() {
@@ -11,6 +11,7 @@ function UserPost() {
       try {
         const data = await showUserPost();
         setPostsData(data.post);
+        console.log(data);
       } catch (error) {
         console.error(error);
       } finally {
@@ -21,6 +22,15 @@ function UserPost() {
       fetchData();
     };
   }, []);
+
+  const handleDelete = async (id: number) => {
+    try {
+      await deletePost(id);
+      setPostsData((prevPost) => prevPost.filter((post) => post.id !== id));
+    } catch (error) {
+      console.error(error);
+    }
+  };
   return (
     <div>
       {loading ? (
@@ -30,6 +40,7 @@ function UserPost() {
           <div key={index}>
             <h1>{item.title}</h1>
             <h2>{item.content}</h2>
+            <button onClick={() => handleDelete(item.id)}>Supprimer</button>
           </div>
         ))
       )}
