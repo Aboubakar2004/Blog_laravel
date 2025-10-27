@@ -1,11 +1,23 @@
 import { useState } from "react";
+import { addPost } from "../../api/posts";
 
 function Posts() {
   const [form, setForm] = useState({ title: "", content: "" });
+
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+
+    try {
+      await addPost({ title: form.title, content: form.content });
+      alert("Post crée avec succès");
+    } catch (error) {
+      console.error(error);
+    }
+  };
   return (
     <div>
       <div>
-        <form action="">
+        <form onSubmit={handleSubmit}>
           <div>
             <label htmlFor="">Titre</label>
             <input

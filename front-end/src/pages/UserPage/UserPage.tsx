@@ -45,7 +45,7 @@ function UserPage() {
           <div>
             <h1>Bonjour {userData?.user.name}</h1>
             <button onClick={handleSubmit}>Déconnexion</button>
-            <Link to={"/userposts"}>
+            <Link to={"/posts"}>
               <button>Faire un post</button>
             </Link>
           </div>
