@@ -42,7 +42,7 @@ export async function loginUser({
   }
 }
 
-export async function logoutUser({}) {
+export async function logoutUser() {
   const token = localStorage.getItem("token");
   try {
     const response = await axios.post(
