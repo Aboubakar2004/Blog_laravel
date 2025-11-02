@@ -3,9 +3,11 @@ import { registerUser } from "../../api/auth";
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import RegisterImage from "../../assets/images/6881987.jpg";
+import { useNavigate } from "react-router-dom";
 
 function Register() {
   const [form, setForm] = useState({ name: "", email: "", password: "" });
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -16,6 +18,7 @@ function Register() {
         email: form.email,
         password: form.password,
       });
+      navigate("/userpage");
     } catch (error) {
       console.error(error);
     }
