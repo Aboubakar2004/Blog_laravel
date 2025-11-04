@@ -40,4 +40,12 @@ class PostsController extends Controller
             "post" => $post,
         ]);
     }
+
+    public function showAllPosts () {
+        $post = Posts::with('user:id,name')->get();
+
+        return response()->json([
+            "post" => $post
+        ]);
+    }
 }

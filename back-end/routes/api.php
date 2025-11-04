@@ -17,3 +17,5 @@ Route::middleware("auth:sanctum")->get('/user/name', [UserController::class, "ge
 
 Route::apiResource('/posts', PostsController::class)->middleware("auth:sanctum");
 
+Route::get('/showAllPosts', [PostsController::class, 'showAllPosts']);
+

@@ -19,7 +19,7 @@ function Login() {
       if (data.token && data.user_id) {
         localStorage.setItem("token", data.token);
         localStorage.setItem("user_id", data.user_id);
-        navigate("/userpage");
+        navigate("/");
       }
       setMessage(data.message);
     } catch (error) {
@@ -40,7 +40,7 @@ function Login() {
         <div>
           <h1 className="text-5xl font-bold">Brog</h1>
         </div>
-        <div className="flex flex-col gap-10  rounded-lg p-10 shadow-lg border border-gray-300 bg-white  ">
+        <div className="flex flex-col gap-10  rounded-lg p-10 shadow-lg border border-gray-300 bg-[#F7F3E3]  ">
           <div className="flex justify-between">
             <h1 className="text-xl">Se connecter</h1>
             <Link to={"/register"} className="text-xl text-blue-600 ">

@@ -60,3 +60,13 @@ export async function deletePost(postId: number) {
     throw error;
   }
 }
+
+export async function showAllPost() {
+  try {
+    const response = await axios.get(`${API_URL}/showAllPosts`, {});
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+}

@@ -36,7 +36,7 @@ function Register() {
         <div>
           <h1 className="text-5xl font-bold">Brog</h1>
         </div>
-        <div className="flex flex-col gap-10  rounded-lg p-10 shadow-lg border border-gray-300 bg-white  ">
+        <div className="flex flex-col gap-10  rounded-lg p-10 shadow-lg border border-gray-300 bg-[#F7F3E3]  ">
           <div className="flex justify-between">
             <h1 className="text-xl">S'inscrire</h1>
             <Link to={"/login"} className="text-xl text-blue-600 ">
