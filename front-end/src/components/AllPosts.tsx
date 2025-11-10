@@ -23,15 +23,20 @@ function AllPosts() {
 
   return (
     <div>
-      <div>
+      <div className="flex flex-col gap-8">
         {loading ? (
           <h1>Chargement ...</h1>
         ) : (
           posts.map((item, index) => (
-            <div key={index}>
-              <h1>{item.user.name}</h1>
-              <h2>{item.title}</h2>
-              <h3>{item.content}</h3>
+            <div
+              key={index}
+              className="p-5 border border-gray-300 shadow-sm rounded-lg "
+            >
+              <h1 className="text-2xl bg-blue-400 rounded-lg p-2 text-white w-fit">
+                {item.user.name}
+              </h1>
+              <h2 className="text-xl font-medium">{item.title}</h2>
+              <h3 className="text-sm font-normal">{item.content}</h3>
             </div>
           ))
         )}
