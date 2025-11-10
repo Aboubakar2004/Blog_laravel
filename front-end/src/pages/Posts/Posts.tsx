@@ -16,12 +16,16 @@ function Posts() {
     }
   };
   return (
-    <div>
+    <div className="p-6 flex flex-col gap-5 ">
+      <h1 className="text-2xl font-bold  ">
+        Poster
+      </h1>
       <div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="bg-white rounded-lg p-7 flex flex-col gap-3">
           <div>
             <label htmlFor="">Titre</label>
             <input
+              className="border border-gray-400 bg-gray-200 p-1 rounded-lg w-full"
               type="text"
               value={form.title}
               onChange={(e) => setForm({ ...form, title: e.target.value })}
@@ -29,12 +33,12 @@ function Posts() {
           </div>
           <div>
             <label htmlFor="">Contenue</label>
-            <textarea
+            <textarea              
               value={form.content}
               onChange={(e) => setForm({ ...form, content: e.target.value })}
-            ></textarea>
+              className="border border-gray-400 bg-gray-200 p-1 rounded-lg w-full h-[690px] resize-none overflow-hidden" ></textarea>
           </div>
-          <input type="submit" value={"Poster"} />
+          <input type="submit" value={"Poster"} className="px-7 p-1 rounded-lg bg-blue-400  text-white hover:bg-blue-500 transition duration-300 ease-in-out cursor-pointer "/>
         </form>
       </div>
     </div>
